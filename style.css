@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body{
+    background-image: url(./first.png) ;
+    width: 100%;
+    background-size: cover;
+   background-repeat: no-repeat;
+}
+.budget-input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: auto;
+    padding-top: 30px;
+    gap: 10px;
+}
+
+.budget-text{
+    background-color: rgba(255, 255, 255, 0.6);
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+   
+}
+
+.expense{
+    display: inline-block;
+    text-align: center;
+    flex-direction: column;
+    padding: 40px;
+}

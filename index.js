@@ -7,7 +7,7 @@ const budgetInput = document.querySelector('.budget');
 const left = document.querySelector('.left');
 const userExpense = document.querySelector('.user-expenses');
 const balanceHtml = document.querySelector('.balance');
-const body = document.querySelector('body')ж
+const body = document.querySelector('body');
 const budgetremove = document.querySelector('user-budget');
 let balance = +0;
 let expense = +0;
@@ -44,7 +44,7 @@ expenseBtn.addEventListener('click', () => {
         newItem.innerHTML = (userExpenseName.value + ': $ ' + userExpenseValue.value)
         userExpense.appendChild(newItem)
 
-        console.log(expense)
+        // console.log(expense)
     }
 
     if (expense >= 0) {

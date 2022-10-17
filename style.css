@@ -1,37 +1,164 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    font-size: 18px;
+    font-family: 'Caveat', cursive;
+}
 
-body{
-    background-image: url(./first.png) ;
+body {
+    background-image: url(./first.png);
     width: 100%;
     background-size: cover;
-   background-repeat: no-repeat;
+    background-repeat: no-repeat;
 }
-.budget-input{
+
+.container {
+    padding-right: 250px;
+    padding-left: 150px;
+}
+
+.budget-input {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     height: auto;
-    padding-top: 30px;
+    padding-top: 40px;
     gap: 10px;
+
 }
 
-.budget-text{
+.user-budget {
+    display: flex;
+    flex-direction: column;
+}
+
+p {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    /* color: rgb(201, 86, 236); */
+    /* background-color: #2AA5A0; */
+    background-image: linear-gradient(90deg, #da291c, #e7d211, #da1cd0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+   
+
+}
+
+.budget-text {
     background-color: rgba(255, 255, 255, 0.6);
     border: none;
-    padding: 5px;
-    border-radius: 5px;
-   
+    padding: 10px 25px 10px 25px;
+    border-radius: 10px;
+    outline: none;
+    font-size: 1.9rem;
+    font-family: 'Caveat', cursive;
 }
 
-.expense{
+.budget-btn {
+    border: none;
+    font-size: 2rem;
+    background-color: transparent;
+    outline: none;
+    font-weight: bold;
+    background-image: linear-gradient(90deg, #e353d7, #2a63a5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Caveat', cursive;
+}
+
+.expense {
     display: inline-block;
     text-align: center;
     flex-direction: column;
-    padding: 40px;
+
+    gap: 20px
+}
+
+.expense-name {
+    margin-bottom: 15px;
+}
+
+.cost {
+    margin-bottom: 15px;
+}
+
+.expense__input {
+    font-size: 1.9rem;
+    font-family: 'Caveat', cursive;
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
+}
+
+.expense-value {
+    font-size: 1.9rem;
+    font-family: 'Caveat', cursive;
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
+
+}
+
+.expense-btn {
+    border: none;
+    font-size: 2rem;
+    background-color: transparent;
+    outline: none;
+    font-weight: bold;
+   color: #5385e3;
+    font-family: 'Caveat', cursive;
+}
+
+.total {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 35px;
+}
+
+.budget {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: blueviolet;
+    font-family: 'Caveat', cursive;
+}
+
+.left {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: blueviolet;
+    font-family: 'Caveat', cursive;
+}
+
+.balance {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: blueviolet;
+    font-family: 'Caveat', cursive;
+}
+
+.box {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.expense-item {
+    font-size: 2rem;
+    font-family: 'Caveat', cursive;
+    color: blueviolet;
+    flex-direction: column;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 10px 20px 5px 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
 }

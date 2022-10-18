@@ -5,59 +5,53 @@ const userExpenseValue = document.querySelector('.expense-value');
 const expenseBtn = document.querySelector('.expense-btn');
 const budgetInput = document.querySelector('.budget');
 const left = document.querySelector('.left');
-const userExpense = document.querySelector('.user-expenses');
-const balanceHtml = document.querySelector('.balance');
-const body = document.querySelector('body');
-const budgetremove = document.querySelector('user-budget');
-let balance = +0;
-let expense = +0;
-let budget = +0;
+let balance = 0;
+let expense = 0;
+let budget = 0;
+
 
 userExpenseName.focus();
 budgetBtn.addEventListener('click', () => {
-    if (userBudget.value.trim() == 0 || userBudget.value == "") {
+    if ((Number.isNaN(Number(userBudget.value))) || Number(userBudget.value)<=0) {
         alert('Add budget')
     } else {
         budget = userBudget.value;
         budgetInput.innerHTML = ('Budget: ' + budget);
-        userBudget.value = ''
-    }
-    if (budget > 0) {
-        userBudget.style.display= 'none';
-        budgetBtn.style.display= 'none';
+        userBudget.value = '';
+        userBudget.style.display = 'none';
+        budgetBtn.style.display = 'none';
     }
 })
 
 expenseBtn.addEventListener('click', () => {
 
-    // console.log('2')
-    if (userExpenseName.value.trim() == 0 || userExpenseName.value.trim() == "") {
-        alert('Add expense')
-    } else if (userExpenseValue.value.trim() == 0 || userExpenseValue.value.trim() == '') {
-        alert('Add expense')
-    }
+    if (!userExpenseName.value.trim()) {
+        alert('Add expense name')
+    } else if (Number.isNaN(Number(userExpenseValue.value)) || Number(userExpenseValue.value)<=0) {
+        alert('Add expense amount')
+    } else{
+        const userExpense = document.querySelector('.user-expenses');
 
-    if (userExpenseName.value.trim() && userExpenseValue.value.trim()) {
         expense += (+userExpenseValue.value);
-        let newItem = document.createElement('div')
-        newItem.classList.add('expense-item')
+        let newItem = document.createElement('div');
+        newItem.classList.add('expense-item');
         newItem.innerHTML = (userExpenseName.value + ': $ ' + userExpenseValue.value)
         userExpense.appendChild(newItem)
-
-        // console.log(expense)
     }
 
     if (expense >= 0) {
         left.textContent = +expense;
-        left.innerHTML = ('Left: $ ' + left.textContent)
-    }
-    if (expense > 0) {
+        left.innerHTML = ('Expense: $ ' + left.textContent)
+  
+        const balanceHtml = document.querySelector('.balance');
+
         balance = budget - expense;
         balanceHtml.innerHTML = ('Balance: $ ' + (budget - expense));
     }
- if (balance<0){
-body.style.backgroundImage = 'url(./second.png)'
- }
+    if (balance < 0) {
+        const body = document.querySelector('body');
+        body.style.backgroundImage = 'url(./second.png)'
+    }
     userExpenseName.value = " ";
     userExpenseValue.value = ' ';
 

@@ -5,14 +5,22 @@ const userExpenseValue = document.querySelector('.expense-value');
 const expenseBtn = document.querySelector('.expense-btn');
 const budgetInput = document.querySelector('.budget');
 const left = document.querySelector('.left');
+const userExpense = document.querySelector('.user-expenses');
 let balance = 0;
 let expense = 0;
 let budget = 0;
 
+let listItem = [];
+
+// [{
+//     name: milk,
+//     price: 20
+// }]
+
 
 userExpenseName.focus();
 budgetBtn.addEventListener('click', () => {
-    if ((Number.isNaN(Number(userBudget.value))) || Number(userBudget.value)<=0) {
+    if ((Number.isNaN(Number(userBudget.value))) || Number(userBudget.value) <= 0) {
         alert('Add budget')
     } else {
         budget = userBudget.value;
@@ -27,22 +35,30 @@ expenseBtn.addEventListener('click', () => {
 
     if (!userExpenseName.value.trim()) {
         alert('Add expense name')
-    } else if (Number.isNaN(Number(userExpenseValue.value)) || Number(userExpenseValue.value)<=0) {
+    } else if (Number.isNaN(Number(userExpenseValue.value)) || Number(userExpenseValue.value) <= 0) {
         alert('Add expense amount')
-    } else{
-        const userExpense = document.querySelector('.user-expenses');
-
+    } else {
         expense += (+userExpenseValue.value);
-        let newItem = document.createElement('div');
-        newItem.classList.add('expense-item');
-        newItem.innerHTML = (userExpenseName.value + ': $ ' + userExpenseValue.value)
-        userExpense.appendChild(newItem)
+        makeNewItem(userExpenseName, userExpenseValue);
+
+        newItem = {
+            name: userExpenseName.value,
+            price: +userExpenseValue.value
+        }
+
+        listItem.push(newItem)
+        console.log(listItem)
+
+
+        localStorage.setItem('user', JSON.stringify(listItem));
+        JSON.parse(localStorage.getItem('user'));
+        newItem = ""
     }
 
     if (expense >= 0) {
         left.textContent = +expense;
         left.innerHTML = ('Expense: $ ' + left.textContent)
-  
+
         const balanceHtml = document.querySelector('.balance');
 
         balance = budget - expense;
@@ -57,3 +73,10 @@ expenseBtn.addEventListener('click', () => {
 
 })
 
+function makeNewItem(userExpenseName, userExpenseValue) {
+
+    let newItem = document.createElement('div');
+    newItem.classList.add('expense-item');
+    newItem.innerHTML = (userExpenseName.value + ': $ ' + userExpenseValue.value)
+    userExpense.appendChild(newItem)
+}

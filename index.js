@@ -81,3 +81,12 @@ function makeNewItem(userExpenseName, userExpenseValue) {
     newItem.innerHTML = (userExpenseName.value + ': $ ' + userExpenseValue.value)
     userExpense.appendChild(newItem)
 }
+
+document.addEventListener("DOMContentLoaded", ()=>{
+    if (localStorage>0){
+        array.forEach(element => {
+            
+        });
+    }
+    //проверка пустой сторадж или нет если не пустой то пробьегайся циклом по всем элементам и отобразжи их
+    });

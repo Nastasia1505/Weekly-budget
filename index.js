@@ -51,7 +51,8 @@ expenseBtn.addEventListener('click', () => {
 
 
         localStorage.setItem('user', JSON.stringify(listItem));
-        JSON.parse(localStorage.getItem('user'));
+        console.log(JSON.parse(localStorage.getItem('user')));
+        let users = JSON.parse(localStorage.getItem('user'));
         newItem = ""
     }
 

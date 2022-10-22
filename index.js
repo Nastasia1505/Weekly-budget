@@ -28,6 +28,7 @@ budgetBtn.addEventListener('click', () => {
         userBudget.value = '';
         userBudget.style.display = 'none';
         budgetBtn.style.display = 'none';
+        localStorage.setItem('budget', budget);
     }
 })
 
@@ -47,11 +48,11 @@ expenseBtn.addEventListener('click', () => {
         }
 
         listItem.push(newItem)
-        console.log(listItem)
+        
 
 
         localStorage.setItem('user', JSON.stringify(listItem));
-        console.log(JSON.parse(localStorage.getItem('user')));
+        // console.log(JSON.parse(localStorage.getItem('user')));
         let users = JSON.parse(localStorage.getItem('user'));
         newItem = ""
     }
@@ -61,6 +62,7 @@ expenseBtn.addEventListener('click', () => {
         left.innerHTML = ('Expense: $ ' + left.textContent)
 
         const balanceHtml = document.querySelector('.balance');
+        localStorage.setItem('expense', JSON.stringify(expense));
 
         balance = budget - expense;
         balanceHtml.innerHTML = ('Balance: $ ' + (budget - expense));
@@ -68,6 +70,8 @@ expenseBtn.addEventListener('click', () => {
     if (balance < 0) {
         const body = document.querySelector('body');
         body.style.backgroundImage = 'url(./second.png)'
+        localStorage.setItem('balanse', JSON.stringify(balance))
+
     }
     userExpenseName.value = " ";
     userExpenseValue.value = ' ';
@@ -82,11 +86,12 @@ function makeNewItem(userExpenseName, userExpenseValue) {
     userExpense.appendChild(newItem)
 }
 
-document.addEventListener("DOMContentLoaded", ()=>{
-    if (localStorage>0){
-        array.forEach(element => {
-            
-        });
-    }
-    //проверка пустой сторадж или нет если не пустой то пробьегайся циклом по всем элементам и отобразжи их
-    });
+window.addEventListener("load", () => {
+    console.log('hello');
+if (localStorage !=0){
+    console.log(JSON.parse(localStorage.getItem('user')));
+    console.log(JSON.parse(localStorage.getItem('budget')));
+    console.log(JSON.parse(localStorage.getItem('expense')));
+}
+
+});

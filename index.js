@@ -17,6 +17,15 @@ let listItem = [];
 //     price: 20
 // }]
 
+window.addEventListener("DOMContentLoaded", () => {
+    listItem = JSON.parse(localStorage.getItem("products")) || [];
+    budget = JSON.parse(localStorage.getItem("budget")) || 0;
+    expense = JSON.parse(localStorage.getItem("expense")) || 0;
+    budgetInput.innerHTML = "Budget: " + budget;
+    listItem.forEach((item) => {
+        makeNewItem(item.name, item.price);
+    });
+});
 
 userExpenseName.focus();
 budgetBtn.addEventListener('click', () => {
@@ -48,12 +57,12 @@ expenseBtn.addEventListener('click', () => {
         }
 
         listItem.push(newItem)
-        
 
 
-        localStorage.setItem('user', JSON.stringify(listItem));
+
+        localStorage.setItem('products', JSON.stringify(listItem));
         // console.log(JSON.parse(localStorage.getItem('user')));
-        let users = JSON.parse(localStorage.getItem('user'));
+        let users = JSON.parse(localStorage.getItem('products'));
         newItem = ""
     }
 
@@ -86,12 +95,4 @@ function makeNewItem(userExpenseName, userExpenseValue) {
     userExpense.appendChild(newItem)
 }
 
-window.addEventListener("load", () => {
-    console.log('hello');
-if (localStorage !=0){
-    console.log(JSON.parse(localStorage.getItem('user')));
-    console.log(JSON.parse(localStorage.getItem('budget')));
-    console.log(JSON.parse(localStorage.getItem('expense')));
-}
 
-});
